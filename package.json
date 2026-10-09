@@ -1,0 +1,19 @@
+{
+  "name": "opendesk-ai",
+  "version": "1.0.0",
+  "description": "OpenDesk AI Desktop Container",
+  "main": "electron/main.ts",
+  "scripts": {
+    "dev": "concurrently \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\" \"wait-on http://localhost:8000/api/health && electron electron/main.js\"",
+    "build:electron": "tsc -p electron/tsconfig.json",
+    "build": "npm --prefix frontend run build && npm --prefix backend run build && npm run build:electron"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "concurrently": "^8.2.2",
+    "electron": "^30.0.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "wait-on": "^7.2.0"
+  }
+}
